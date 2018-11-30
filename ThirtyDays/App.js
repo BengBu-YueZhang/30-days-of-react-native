@@ -4,8 +4,7 @@ import Day1Stack from './views/Day1Screen'
 import {
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator,
-  createBottomTabNavigator
+  createSwitchNavigator
 } from 'react-navigation'
 
 
@@ -22,7 +21,7 @@ const HomeStack = createStackNavigator(
   }
 )
 
-const RootStack = createStackNavigator(
+const RootStack = createSwitchNavigator(
   {
     Home: HomeStack,
     Day1: Day1Stack
