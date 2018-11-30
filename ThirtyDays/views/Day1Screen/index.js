@@ -5,7 +5,82 @@ import Page4 from './components/Page4'
 import { createBottomTabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import React from 'react'
-import AddButton from './components/AddButton'
+import { Animated, View, StyleSheet, TouchableHighlight, Text, Button } from 'react-native'
+
+class AddButton extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      mode: new Animated.Value(0)
+    }
+  }
+
+  render () {
+
+    // const firstX = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+
+    // const firstY = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+
+    // const secondX = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+
+    // const secondY = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+
+    // const thirdX = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+    
+    // const thirdY = this.state.mode.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: []
+    // })
+
+    const transparent = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1]
+    })
+
+    const rotation = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '45deg']
+    })
+
+
+    return (
+      <View>
+        <TouchableHighlight style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: '#48A2F8'
+        }}>
+          <Animated.View style={{
+            transform: [
+              {rotate: rotation}
+            ]
+          }}>
+            <Icon name="plus" size={24} color="#F8F8F8"/>
+          </Animated.View>
+        </TouchableHighlight>
+      </View>
+    )
+  }
+}
 
 const Day1Stack = createBottomTabNavigator(
   {
@@ -35,9 +110,15 @@ const Day1Stack = createBottomTabNavigator(
         tabBarLabel: '详情'
       })
     },
-    Adding: {
-      screen: () => null,
-      tabBarIcon: <AddButton/>
+    Add: {
+      screen: Page2,
+      navigationOptions: () => ({
+        tabBarIcon: () => {
+          return (
+            <AddButton/>
+          )
+        }
+      })
     },
     Page3: {
       screen: Page3,
