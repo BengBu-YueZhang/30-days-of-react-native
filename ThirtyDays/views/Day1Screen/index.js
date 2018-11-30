@@ -9,7 +9,9 @@ import { Animated, View, StyleSheet, TouchableHighlight, Text, Button } from 're
 
 const styles = StyleSheet.create({
   root: {
-    position: 'relative'
+    position: 'relative',
+    width: 80,
+    height: 80
   },
   button: {
     alignItems: 'center',
@@ -17,6 +19,14 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
+    backgroundColor: '#48A2F8'
+  },
+  minButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 30,
+    height: 30,
+    borderRadius: 15,
     backgroundColor: '#48A2F8'
   }
 })
@@ -31,39 +41,46 @@ class AddButton extends React.Component {
   }
 
   handlePress = () => {
+    Animated.timing(
+      this.state.mode,
+      {
+        toValue: this.state.mode._value === 0 ? 1 : 0,
+        duration: 500
+      }
+    ).start()
   }
 
   render () {
 
-    // const firstX = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const firstX = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, -30]
+    })
 
-    // const firstY = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const firstY = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, -30]
+    })
 
-    // const secondX = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const secondX = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, 25]
+    })
 
-    // const secondY = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const secondY = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, -40]
+    })
 
-    // const thirdX = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const thirdX = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, 80]
+    })
     
-    // const thirdY = this.state.mode.interpolate({
-    //   inputRange: [0, 1],
-    //   outputRange: []
-    // })
+    const thirdY = this.state.mode.interpolate({
+      inputRange: [0, 1],
+      outputRange: [25, -30]
+    })
 
     const transparent = this.state.mode.interpolate({
       inputRange: [0, 1],
@@ -77,19 +94,37 @@ class AddButton extends React.Component {
 
     return (
       <View style={styles.root}>
-        <TouchableHighlight style={styles.button} onPress={this.handlePress}>
-          <Animated.View style={{
-            opacity: transparent
-          }}>
-          </Animated.View>
-          <Animated.View style={{
-            opacity: transparent
-          }}>
-          </Animated.View>
-          <Animated.View style={{
-            opacity: transparent
-          }}>
-          </Animated.View>
+        <Animated.View style={{
+          position: 'absolute',
+          opacity: transparent,
+          left: firstX,
+          top: firstY
+        }}>
+          <TouchableHighlight style={styles.minButton}>
+            <Icon name="rocket" size={16} color="#F8F8F8"/>
+          </TouchableHighlight>
+        </Animated.View>
+        <Animated.View style={{
+          position: 'absolute',
+          opacity: transparent,
+          left: secondX,
+          top: secondY
+        }}>
+          <TouchableHighlight style={styles.minButton}>
+            <Icon name="home" size={16} color="#F8F8F8"/>
+          </TouchableHighlight>
+        </Animated.View>
+        <Animated.View style={{
+          position: 'absolute',
+          opacity: transparent,
+          left: thirdX,
+          top: thirdY
+        }}>
+          <TouchableHighlight style={styles.minButton}>
+            <Icon name="archive" size={16} color="#F8F8F8"/>
+          </TouchableHighlight>
+        </Animated.View>
+        <TouchableHighlight style={styles.button} underlayColor="#2882D8" onPress={this.handlePress}>
           <Animated.View style={{
             transform: [
               {rotate: rotation}
