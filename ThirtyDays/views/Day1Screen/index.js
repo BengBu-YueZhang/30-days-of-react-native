@@ -7,6 +7,20 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import React from 'react'
 import { Animated, View, StyleSheet, TouchableHighlight, Text, Button } from 'react-native'
 
+const styles = StyleSheet.create({
+  root: {
+    position: 'relative'
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: '#48A2F8'
+  }
+})
+
 class AddButton extends React.Component {
 
   constructor (props) {
@@ -14,6 +28,9 @@ class AddButton extends React.Component {
     this.state = {
       mode: new Animated.Value(0)
     }
+  }
+
+  handlePress = () => {
   }
 
   render () {
@@ -58,17 +75,21 @@ class AddButton extends React.Component {
       outputRange: ['0deg', '45deg']
     })
 
-
     return (
-      <View>
-        <TouchableHighlight style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 40,
-          height: 40,
-          borderRadius: 20,
-          backgroundColor: '#48A2F8'
-        }}>
+      <View style={styles.root}>
+        <TouchableHighlight style={styles.button} onPress={this.handlePress}>
+          <Animated.View style={{
+            opacity: transparent
+          }}>
+          </Animated.View>
+          <Animated.View style={{
+            opacity: transparent
+          }}>
+          </Animated.View>
+          <Animated.View style={{
+            opacity: transparent
+          }}>
+          </Animated.View>
           <Animated.View style={{
             transform: [
               {rotate: rotation}
