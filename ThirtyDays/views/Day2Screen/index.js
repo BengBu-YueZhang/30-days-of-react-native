@@ -3,15 +3,14 @@ import { createStackNavigator } from 'react-navigation'
 import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
-import { getStopwatchs, getStatus, getLeftText, getRightText } from '../../store/selectors/stopwatch'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
   return {
-    stopwatchs: getStopwatchs(state),
-    status: getStatus(state),
-    leftText: getLeftText(state),
-    rightText: getRightText(state)
+    stopwatchs: state.getIn(['stopwatch', 'stopwatchs']),
+    status: state.getIn(['stopwatch', 'start']),
+    leftText: state.getIn(['stopwatch', 'leftText']),
+    rightText: state.getIn(['stopwatch', 'rightText'])
   }
 }
 
@@ -81,8 +80,8 @@ class Day2Screen extends React.Component {
 
 const Day2Stack = createStackNavigator(
   {
-    Day2: Day2Screen
+    Day2: connect(mapStateToProps)(Day2Screen)
   }
 )
 
-export default connect(mapStateToProps)(Day2Stack)
+export default Day2Stack
