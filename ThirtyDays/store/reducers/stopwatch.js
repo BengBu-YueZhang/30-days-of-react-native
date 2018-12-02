@@ -8,7 +8,9 @@ import { Map, List } from 'immutable'
 
 const init = Map({
   stopwatchs: List([]),
-  start: false
+  start: false,
+  leftText: '复位',
+  rightText: '启动'
 })
 
 function stopwatch (state = init, action) {

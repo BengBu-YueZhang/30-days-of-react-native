@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
+import RoundButton from './components/RoundButton'
 
 const styles = StyleSheet.create({
   root: {
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
   middle: {
     width: '100%',
     aspectRatio: 2,
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
   }
@@ -52,6 +54,12 @@ class Day2Screen extends React.Component {
             </Text>
           </View>
           <View style={styles.middle}>
+            <RoundButton
+              title={'复位'}
+            />
+            <RoundButton
+              title={'启动'}
+            />
           </View>
           <ScrollView></ScrollView>
         </View>
