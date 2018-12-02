@@ -2,7 +2,7 @@ import React from 'react'
 
 class Day2Screen extends React.Component {
   render () {
-    return null
+    return 
   }
 }
 

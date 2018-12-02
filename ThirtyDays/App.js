@@ -6,6 +6,8 @@ import {
   createAppContainer,
   createSwitchNavigator
 } from 'react-navigation'
+import { Provider } from 'react-redux'
+import store from './store'
 
 
 const HomeStack = createStackNavigator(
@@ -38,6 +40,10 @@ const AppContainer = createAppContainer(RootStack)
 
 export default class App extends React.Component {
   render() {
-    return <AppContainer/>
+    return (
+      <Provider store={store}>
+        <AppContainer/>
+      </Provider>
+    )
   }
 }
