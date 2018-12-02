@@ -4,7 +4,7 @@ import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
 import { connect } from 'react-redux'
-import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET } from '../../store/actions/stopwatch'
+import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET, STOPWATCH_MOVE } from '../../store/actions/stopwatch'
 import format from '../../util/format'
 
 const mapStateToProps = (state) => {
@@ -82,9 +82,20 @@ class Day2Screen extends React.Component {
   }
 
   componentDidMount () {
+    const { status } = this.props
+    if (status) {
+      this.timer = setInterval(() => {
+        let changeTime = new Date().getTime()
+        this.props.dispatch({
+          type: STOPWATCH_MOVE,
+          changeTime
+        })
+      }, 10)
+    }
   }
 
   componentWillUnmount () {
+    clearInterval(this.timer)
   }
 
   handleReset = () => {
@@ -104,12 +115,20 @@ class Day2Screen extends React.Component {
       type: STOPWATCH_START,
       current: new Date().getTime()
     })
+    this.timer = setInterval(() => {
+      let changeTime = new Date().getTime()
+      this.props.dispatch({
+        type: STOPWATCH_MOVE,
+        changeTime
+      })
+    }, 10)
   }
 
   handleStop = () => {
     this.props.dispatch({
       type: STOPWATCH_STOP
     })
+    clearInterval(this.timer)
   }
 
   onCountOrResetOrStartOrStop = (tilte) => {
