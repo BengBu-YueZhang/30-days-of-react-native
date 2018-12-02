@@ -22,11 +22,11 @@ function stopwatch (state = init, action) {
     case STOPWATCH_START:
       return state.withMutations(function (state) {
         const { current } = action
-        state
-        .set('start', true)
-        .set('leftText', '计次')
-        .set('rightText', '停止')
-        .set('init', current)
+        if (state.get('current') === 0) {
+          state.set('start', true).set('leftText', '计次').set('rightText', '停止').set('init', current)
+        } else {
+          state.set('start', true).set('leftText', '计次').set('rightText', '停止')
+        }
       })
     case STOPWATCH_STOP:
       return state.withMutations(function (state) {
