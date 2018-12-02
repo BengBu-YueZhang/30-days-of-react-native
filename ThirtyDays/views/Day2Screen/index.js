@@ -36,6 +36,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
+  },
+  bottom: {
+    padding: 20
+  },
+  listItem: {
+    width: '100%',
+    height: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    fontSize: 12,
+    lineHeight: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  count: {
+    color: '#666'
   }
 })
 
@@ -55,6 +74,7 @@ class Day2Screen extends React.Component {
   }
 
   render () {
+    const { leftText, rightText, status, stopwatchs } = this.props
     return (
       <SafeAreaView>
         <View style={styles.root}>
@@ -65,13 +85,26 @@ class Day2Screen extends React.Component {
           </View>
           <View style={styles.middle}>
             <RoundButton
-              title={'复位'}
+              title={leftText}
             />
             <RoundButton
-              title={'启动'}
+              title={rightText}
             />
           </View>
-          <ScrollView></ScrollView>
+          <ScrollView>
+            <View style={styles.bottom}>
+              {
+                stopwatchs.size > 0 && stopwatchs.map(stopwatc => {
+                  return (
+                    <View style={styles.listItem}>
+                      <Text style={styles.count}>计次1</Text>
+                      <Text>00:00:01</Text>
+                    </View>
+                  )
+                })
+              }
+            </View>
+          </ScrollView>
         </View>
       </SafeAreaView>
     )
