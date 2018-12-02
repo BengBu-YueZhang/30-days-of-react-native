@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
 import { connect } from 'react-redux'
 import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET, STOPWATCH_MOVE } from '../../store/actions/stopwatch'
-import format from '../../util/format'
+import { getMinute, getSecond, getMillisecond } from '../../util/format'
 
 const mapStateToProps = (state) => {
   return {
@@ -90,7 +90,7 @@ class Day2Screen extends React.Component {
           type: STOPWATCH_MOVE,
           changeTime
         })
-      }, 10)
+      }, 30)
     }
   }
 
@@ -106,7 +106,8 @@ class Day2Screen extends React.Component {
 
   handleCount = () => {
     this.props.dispatch({
-      type: STOPWATCH_COUNT
+      type: STOPWATCH_COUNT,
+      time: new Date().getTime()
     })
   }
 
@@ -121,7 +122,7 @@ class Day2Screen extends React.Component {
         type: STOPWATCH_MOVE,
         changeTime
       })
-    }, 10)
+    }, 100)
   }
 
   handleStop = () => {
@@ -151,7 +152,9 @@ class Day2Screen extends React.Component {
         <View style={styles.root}>
           <View style={styles.top}>
             <Text style={styles.topText}>
-              { format(current) }
+              <Text>{getMinute(current)}.</Text>
+              <Text>{getSecond(current)}:</Text>
+              <Text>{getMillisecond(current)}</Text>
             </Text>
           </View>
           <View style={styles.middle}>
@@ -167,11 +170,11 @@ class Day2Screen extends React.Component {
           <ScrollView>
             <View style={styles.bottom}>
               {
-                stopwatchs.size > 0 && stopwatchs.map(stopwatc => {
+                stopwatchs.size > 0 && stopwatchs.map((stopwatc, index) => {
                   return (
-                    <View style={styles.listItem}>
-                      <Text style={styles.count}>计次1</Text>
-                      <Text>00:00.01</Text>
+                    <View style={styles.listItem} key={index}>
+                      <Text style={styles.count}>计次{index + 1}</Text>
+                      <Text>{ stopwatc }</Text>
                     </View>
                   )
                 })

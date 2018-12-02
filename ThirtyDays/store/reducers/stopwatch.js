@@ -6,7 +6,7 @@ import {
   STOPWATCH_MOVE
 } from '../actions/stopwatch'
 import { Map, List } from 'immutable'
-import format from '../../util/format'
+import { format } from '../../util/format'
 
 const init = Map({
   stopwatchs: List([]),
@@ -34,7 +34,6 @@ function stopwatch (state = init, action) {
         .set('start', false)
         .set('leftText', '复位')
         .set('rightText', '启动')
-        .set('stopwatchs', List([]))
       })
     case STOPWATCH_COUNT:
       const { time } = action
@@ -45,7 +44,7 @@ function stopwatch (state = init, action) {
       ))
     case STOPWATCH_MOVE:
       const { changeTime } = action
-      return state.set('current', changeTime)
+      return state.set('current', changeTime - state.get('init'))
     case STOPWATCH_RESET:
       return Map({
         stopwatchs: List([]),
