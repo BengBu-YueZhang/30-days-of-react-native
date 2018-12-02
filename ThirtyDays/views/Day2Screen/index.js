@@ -1,11 +1,61 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-navigation'
+
+const styles = StyleSheet.create({
+  root: {
+    backgroundColor: '#f5f5f5',
+    minHeight: '100%'
+  },
+  top: {
+    width: '100%',
+    aspectRatio: 2,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  topText: {
+    fontSize: 60,
+    fontWeight: '100'
+  },
+  middle: {
+    width: '100%',
+    aspectRatio: 2,
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  }
+})
 
 class Day2Screen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Stopwatch',
+      headerLeft: ({}) => {
+        return (
+          <Button
+            onPress={() => navigation.navigate('Home')}
+            title="back"
+          />
+        )
+      }
+    } 
+  }
+
   render () {
     return (
-      <View></View>
+      <SafeAreaView>
+        <View style={styles.root}>
+          <View style={styles.top}>
+            <Text style={styles.topText}>
+              00:00:00
+            </Text>
+          </View>
+          <View style={styles.middle}>
+          </View>
+          <ScrollView></ScrollView>
+        </View>
+      </SafeAreaView>
     )
   }
 }
@@ -16,4 +66,4 @@ const Day2Stack = createStackNavigator(
   }
 )
 
-export default Day2Screen
+export default Day2Stack
