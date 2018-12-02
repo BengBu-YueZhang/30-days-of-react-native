@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeScreen from './views/HomeScreen'
 import Day1Stack from './views/Day1Screen'
+import Day2Stack from './views/Day2Screen'
 import {
   createStackNavigator,
   createAppContainer,
@@ -26,7 +27,8 @@ const HomeStack = createStackNavigator(
 const RootStack = createSwitchNavigator(
   {
     Home: HomeStack,
-    Day1: Day1Stack
+    Day1: Day1Stack,
+    Day2: Day2Stack
   },
   {
     initialRouteName: 'Home',

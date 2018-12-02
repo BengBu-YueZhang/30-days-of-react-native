@@ -6,7 +6,11 @@ import { SafeAreaView } from 'react-navigation'
 const DAYS = List([
   Map({
     title: 'Day1',
-    router: 'BottomBar'
+    path: 'Day1'
+  }),
+  Map({
+    title: 'Day2',
+    path: 'Day2'
   })
 ])
 
@@ -14,7 +18,8 @@ const styles = StyleSheet.create({
   root: {
     width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
   },
   block: {
     width: '33.33333%',
@@ -39,19 +44,21 @@ class HomeScreen extends React.Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          {
-            DAYS.map((day, index) => {
-              return (
-                <View style={styles.block} key={index}>
-                  <Button
-                    style={styles.text}
-                    title={day.get('title')}
-                    onPress={() => navigate('Day1')}
-                  />
-                </View>
-              )
-            })
-          }
+          <View style={styles.root  }>
+            {
+              DAYS.map((day, index) => {
+                return (
+                  <View style={styles.block} key={index}>
+                    <Button
+                      style={styles.text}
+                      title={day.get('title')}
+                      onPress={() => navigate(day.get('path'))}
+                    />
+                  </View>
+                )
+              })
+            }
+          </View>
         </ScrollView>
       </SafeAreaView>
     )
