@@ -21,6 +21,8 @@ const styles = StyleSheet.create(
 class RoundButton extends React.Component {
 
   handlePress = () => {
+    const { title } = this.props
+    this.props.onPress(title)
   }
 
   render () {

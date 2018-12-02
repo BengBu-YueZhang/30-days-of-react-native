@@ -21,9 +21,8 @@ export function stopwatchReset () {
   }
 }
 
-export function stopwatchCount (time) {
+export function stopwatchCount () {
   return {
-    type: STOPWATCH_COUNT,
-    time
+    type: STOPWATCH_COUNT
   }
 }

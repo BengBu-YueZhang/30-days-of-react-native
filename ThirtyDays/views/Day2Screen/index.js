@@ -4,6 +4,7 @@ import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
 import { connect } from 'react-redux'
+import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET } from '../../store/actions/stopwatch'
 
 const mapStateToProps = (state) => {
   return {
@@ -73,7 +74,45 @@ class Day2Screen extends React.Component {
     } 
   }
 
+  handleReset = () => {
+    this.props.dispatch({
+      type: STOPWATCH_RESET
+    })
+  }
+
+  handleCount = () => {
+    this.props.dispatch({
+      type: STOPWATCH_COUNT
+    })
+  }
+
+  handleStart = () => {
+    this.props.dispatch({
+      type: STOPWATCH_START
+    })
+  }
+
+  handleStop = () => {
+    this.props.dispatch({
+      type: STOPWATCH_STOP
+    })
+  }
+
+  onCountOrResetOrStartOrStop = (tilte) => {
+    switch (tilte) {
+      case '复位':
+        return this.handleReset()
+      case '启动':
+        return this.handleStart()
+      case '计次':
+        return this.handleCount()
+      case '停止':
+        return this.handleStop()
+    }
+  }
+
   render () {
+    console.log(this.props)
     const { leftText, rightText, status, stopwatchs } = this.props
     return (
       <SafeAreaView>
@@ -85,9 +124,11 @@ class Day2Screen extends React.Component {
           </View>
           <View style={styles.middle}>
             <RoundButton
+              onPress={this.onCountOrResetOrStartOrStop}
               title={leftText}
             />
             <RoundButton
+              onPress={this.onCountOrResetOrStartOrStop}
               title={rightText}
             />
           </View>
