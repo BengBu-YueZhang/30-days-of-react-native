@@ -119,7 +119,7 @@ class Day2Screen extends React.Component {
         <View style={styles.root}>
           <View style={styles.top}>
             <Text style={styles.topText}>
-              00:00:00
+              00:00.00
             </Text>
           </View>
           <View style={styles.middle}>
@@ -139,7 +139,7 @@ class Day2Screen extends React.Component {
                   return (
                     <View style={styles.listItem}>
                       <Text style={styles.count}>计次1</Text>
-                      <Text>00:00:01</Text>
+                      <Text>00:00.01</Text>
                     </View>
                   )
                 })
