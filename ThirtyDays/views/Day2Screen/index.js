@@ -5,13 +5,15 @@ import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
 import { connect } from 'react-redux'
 import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET } from '../../store/actions/stopwatch'
+import format from '../../util/format'
 
 const mapStateToProps = (state) => {
   return {
     stopwatchs: state.getIn(['stopwatch', 'stopwatchs']),
     status: state.getIn(['stopwatch', 'start']),
     leftText: state.getIn(['stopwatch', 'leftText']),
-    rightText: state.getIn(['stopwatch', 'rightText'])
+    rightText: state.getIn(['stopwatch', 'rightText']),
+    current: state.getIn(['stopwatch', 'current'])
   }
 }
 
@@ -74,6 +76,17 @@ class Day2Screen extends React.Component {
     } 
   }
 
+  constructor (props) {
+    super(props)
+    this.timer = null
+  }
+
+  componentDidMount () {
+  }
+
+  componentWillUnmount () {
+  }
+
   handleReset = () => {
     this.props.dispatch({
       type: STOPWATCH_RESET
@@ -88,7 +101,8 @@ class Day2Screen extends React.Component {
 
   handleStart = () => {
     this.props.dispatch({
-      type: STOPWATCH_START
+      type: STOPWATCH_START,
+      current: new Date().getTime()
     })
   }
 
@@ -112,14 +126,13 @@ class Day2Screen extends React.Component {
   }
 
   render () {
-    console.log(this.props)
-    const { leftText, rightText, status, stopwatchs } = this.props
+    const { leftText, rightText, current, stopwatchs } = this.props
     return (
       <SafeAreaView>
         <View style={styles.root}>
           <View style={styles.top}>
             <Text style={styles.topText}>
-              00:00.00
+              { format(current) }
             </Text>
           </View>
           <View style={styles.middle}>

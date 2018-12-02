@@ -2,37 +2,31 @@ import {
   STOPWATCH_START,
   STOPWATCH_STOP,
   STOPWATCH_COUNT,
-  STOPWATCH_RESET
+  STOPWATCH_RESET,
+  STOPWATCH_MOVE
 } from '../actions/stopwatch'
 import { Map, List } from 'immutable'
-
-function addAero (n) {
-  if (typeof n === 'number') {
-    if (n < 10) {
-      return `0${n}`
-    } else {
-      return n
-    }
-  }
-}
+import format from '../../util/format'
 
 const init = Map({
   stopwatchs: List([]),
   start: false,
   leftText: '复位',
   rightText: '启动',
-  init: 0
+  init: 0,
+  current: 0
 })
 
 function stopwatch (state = init, action) {
   switch (action.type) {
     case STOPWATCH_START:
       return state.withMutations(function (state) {
+        const { current } = action
         state
         .set('start', true)
         .set('leftText', '计次')
         .set('rightText', '停止')
-        .set('init', new Date().getTime())
+        .set('init', current)
       })
     case STOPWATCH_STOP:
       return state.withMutations(function (state) {
@@ -46,19 +40,20 @@ function stopwatch (state = init, action) {
       const { time } = action
       // 启动到计次目前的时间
       let current = time - state.get('init')
-      let minute = addAero(parseInt(current / (1000 * 60) , 10))
-      let second = addAero(addAeroparseInt(current / 1000 , 10))
-      let millisecond = addAero(parseInt(current % 1000 / 10))
       return state.update('stopwatchs', stopwatchs => stopwatchs.push(
-        `${minute}:${second}.${millisecond}`
+        format(current)
       ))
+    case STOPWATCH_MOVE:
+      const { changeTime } = action
+      return state.set('current', changeTime)
     case STOPWATCH_RESET:
       return Map({
         stopwatchs: List([]),
         start: false,
         leftText: '复位',
         rightText: '启动',
-        init: 0
+        init: 0,
+        current: 0
       })
     default:
       return state
