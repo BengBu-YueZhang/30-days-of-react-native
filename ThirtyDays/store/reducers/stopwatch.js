@@ -16,9 +16,13 @@ const init = Map({
 function stopwatch (state = init, action) {
   switch (action.type) {
     case STOPWATCH_START:
-      return state.set('start', true)
+      return state.withMutations(function (state) {
+        state.set('start', true).set('leftText', '计次').set('rightText', '停止')
+      })
     case STOPWATCH_STOP:
-      return state.set('start', false)
+      return state.withMutations(function (state) {
+        state.set('start', false).set('leftText', '复位').set('rightText', '启动')
+      })
     case STOPWATCH_COUNT:
       const { time } = action
       return state.update('stopwatchs', stopwatchs => stopwatchs.push(time))

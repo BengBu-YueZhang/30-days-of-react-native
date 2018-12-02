@@ -3,6 +3,17 @@ import { createStackNavigator } from 'react-navigation'
 import { View, Text, ScrollView, Button, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import RoundButton from './components/RoundButton'
+import { getStopwatchs, getStatus, getLeftText, getRightText } from '../../store/selectors/stopwatch'
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => {
+  return {
+    stopwatchs: getStopwatchs(state),
+    status: getStatus(state),
+    leftText: getLeftText(state),
+    rightText: getRightText(state)
+  }
+}
 
 const styles = StyleSheet.create({
   root: {
@@ -74,4 +85,4 @@ const Day2Stack = createStackNavigator(
   }
 )
 
-export default Day2Stack
+export default connect(mapStateToProps)(Day2Stack)
