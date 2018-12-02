@@ -7,6 +7,9 @@ import { connect } from 'react-redux'
 import { STOPWATCH_START, STOPWATCH_STOP, STOPWATCH_COUNT, STOPWATCH_RESET, STOPWATCH_MOVE } from '../../store/actions/stopwatch'
 import { getMinute, getSecond, getMillisecond } from '../../util/format'
 
+/**
+ * 抖的问题可能要改布局
+ */
 const mapStateToProps = (state) => {
   return {
     stopwatchs: state.getIn(['stopwatch', 'stopwatchs']),
