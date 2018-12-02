@@ -125,7 +125,7 @@ class Day2Screen extends React.Component {
         type: STOPWATCH_MOVE,
         changeTime
       })
-    }, 1000)
+    }, 50)
   }
 
   handleStop = () => {
