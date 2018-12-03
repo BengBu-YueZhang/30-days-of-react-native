@@ -15,6 +15,10 @@ const DAYS = List([
   Map({
     title: 'Day3',
     path: 'Day3'
+  }),
+  Map({
+    title: 'Day4',
+    path: 'Day4'
   })
 ])
 
@@ -23,7 +27,8 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    flexWrap: 'wrap'
   },
   block: {
     width: '33.33333%',
@@ -48,7 +53,7 @@ class HomeScreen extends React.Component {
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={styles.root  }>
+          <View style={styles.root}>
             {
               DAYS.map((day, index) => {
                 return (
