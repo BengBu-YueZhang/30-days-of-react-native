@@ -4096,6 +4096,10 @@ react-native-safe-area-view@^0.11.0:
   version "1.0.0-alpha.16"
   resolved "http://registry.npm.taobao.org/react-native-screens/download/react-native-screens-1.0.0-alpha.16.tgz#e3651b7077ea8fa04e8dd3265ad9b87f1f77a758"
 
+react-native-status-bar-height@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/react-native-status-bar-height/download/react-native-status-bar-height-2.2.0.tgz#3bd51de134660efc5f5ad136ca573c7d5790f7ed"
+
 react-native-swiper@^1.5.14:
   version "1.5.14"
   resolved "http://registry.npm.taobao.org/react-native-swiper/download/react-native-swiper-1.5.14.tgz#1c6f949ca377186300f972bb0f30d24062c899aa"

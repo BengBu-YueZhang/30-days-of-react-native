@@ -2,6 +2,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { View, PanResponder, StyleSheet } from 'react-native'
 import React from 'react'
 import { width, height } from '../../../util/dimensions'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 const styles = StyleSheet.create(
   {
@@ -13,6 +14,13 @@ const styles = StyleSheet.create(
   }
 )
 
+const STATUSBAR_HEIGHT = getStatusBarHeight()
+const SIZE = 100
+const MAX_TOP = height - SIZE
+const MAX_LEFT = width - SIZE
+const MIN_TOP = STATUSBAR_HEIGHT
+const MIN_LEFT = 0
+
 class Ball extends React.Component {
 
   constructor (props) {
@@ -20,10 +28,11 @@ class Ball extends React.Component {
     this.ball = null
     this.ballStyles = {
       style: {
-        left: 0,
-        top: 0
+        left: MIN_LEFT,
+        top: MIN_TOP
       }
     }
+    this.panResponder = null
     this.state = {
       color: 'rgba(255, 255, 255, 0.7)' 
     }
@@ -44,12 +53,13 @@ class Ball extends React.Component {
   }
 
   initPanResponder () {
+    this.panResponder = PanResponder.create()
   }
 
   render () {
     return (
-      <View style={styles.root} ref={(ball) => { this.ball = ball }}>
-        <Icon name="ios-baseball" color={this.state.color} size={120}></Icon>
+      <View style={styles.root} ref={(ball) => { this.ball = ball }} {...this.panResponder.panHandlers}>
+        <Icon name="ios-baseball" color={this.state.color} size={SIZE}></Icon>
       </View>
     )
   }
