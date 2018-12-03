@@ -13,7 +13,8 @@ export function getMinute (n) {
 }
 
 export function getSecond (n) {
-  return addAero(parseInt(n / 1000 , 10))
+  let m = n % (1000 * 60)
+  return addAero(parseInt(m / 1000 , 10))
 }
 
 export function getMillisecond (n) {
@@ -21,8 +22,8 @@ export function getMillisecond (n) {
 }
 
 export function format (n) {
-  let minute = addAero(parseInt(n / (1000 * 60) , 10))
-  let second = addAero(parseInt(n / 1000 , 10))
-  let millisecond = addAero(parseInt(n % 1000 / 10))
+  let minute = getMinute(n)
+  let second = getSecond(n)
+  let millisecond = getMillisecond(n)
   return `${minute}:${second}.${millisecond}`
 }

@@ -170,7 +170,7 @@ class Day2Screen extends React.Component {
               title={rightText}
             />
           </View>
-          <ScrollView>
+          <ScrollView style={{flex: 1}}>
             <View style={styles.bottom}>
               {
                 stopwatchs.size > 0 && stopwatchs.map((stopwatc, index) => {
