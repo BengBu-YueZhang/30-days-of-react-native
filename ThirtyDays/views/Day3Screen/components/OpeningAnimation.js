@@ -32,18 +32,19 @@ class OpeningAnimation extends React.Component {
     }
   }
 
-  componentDidMount () {
-    this.handleAnimationStart()
-  }
-
   handleAnimationStart () {
     Animated.timing(
       this.state.animation,
       {
+        delay: 1000,
         toValue: 0,
-        duration: 800
+        duration: 500
       }
-    ).start()
+    ).start(() => {
+      this.setState({
+        visible: false
+      })
+    })
   }
 
   render () {
@@ -61,7 +62,7 @@ class OpeningAnimation extends React.Component {
               transform: [{
                 scale: this.state.animation.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [16, 1]
+                  outputRange: [8, 1]
                 }),
               }]
             }}

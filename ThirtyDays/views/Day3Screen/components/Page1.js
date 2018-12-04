@@ -1,10 +1,19 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import OpeningAnimation from './OpeningAnimation'
-import { View } from 'react-native'
-
+import { View, ScrollView, RefreshControl, Image } from 'react-native'
+import { width, height } from '../../../util/dimensions'
 
 class Page1 extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.oa = null
+    this.state = {
+      refreshing: false
+    }
+  }
+
   static navigationOptions = {
     headerTitle: (
       <Icon
@@ -15,10 +24,39 @@ class Page1 extends React.Component {
     )
   }
 
+  componentDidMount () {
+    this.oa.handleAnimationStart()
+  }
+
+  _onRefresh = () => {}
+
   render () {
     return (
       <View>
-        <OpeningAnimation/>
+        <OpeningAnimation ref={(oa) => { this.oa = oa }} />
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh}
+            />
+          }
+        >
+          <Image
+            source={require('../../../assets/day3.png')}
+            style={{
+              width: width,
+              height: height - 300
+            }}
+          />
+          <Image
+            source={require('../../../assets/day3.png')}
+            style={{
+              width: width,
+              height: height - 300
+            }}
+          />
+        </ScrollView>
       </View>
     )
   }
