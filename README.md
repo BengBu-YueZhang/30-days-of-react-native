@@ -16,9 +16,9 @@
 
 ## Day3
 
-> 结合PanResponder的新版ios天气应用
+> 推特入场动画
 
-![image](https://i.loli.net/2018/12/03/5c04c00f46d6f.gif)
+![image](https://i.loli.net/2018/12/04/5c062270036bb.png)
 
 ### Day4
 
