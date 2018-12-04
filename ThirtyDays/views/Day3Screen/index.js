@@ -1,6 +1,4 @@
-import Swiper from 'react-native-swiper'
 import React from 'react'
-import { ScrollView, View } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Page1 from './components/Page1'
