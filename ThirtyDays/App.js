@@ -11,7 +11,7 @@ import {
 } from 'react-navigation'
 import { Provider } from 'react-redux'
 import store from './store'
-import SplashScreen from "rn-splash-screen"
+import SplashScreen from 'react-native-splash-screen'
 
 const HomeStack = createStackNavigator(
   {
@@ -48,7 +48,6 @@ export default class App extends React.Component {
 
   componentDidMount () {
     setTimeout(() => {
-      console.log(123)
       SplashScreen.hide()
     }, 500)
   }

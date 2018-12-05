@@ -9,7 +9,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <RCTSplashScreen/RCTSplashScreen.h>
+#import "SplashScreen.h"
 
 @implementation AppDelegate
 
@@ -23,7 +23,7 @@
                                                       moduleName:@"ThirtyDays"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  [RCTSplashScreen show:rootView];                                                
+
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -31,6 +31,8 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  [SplashScreen show];
   return YES;
 }
 
