@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00217BF468CF4B368414EC08 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 489CB4689B2640828F7C2A0F /* AntDesign.ttf */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
@@ -42,6 +43,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* ThirtyDaysTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ThirtyDaysTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		39805681A3894F28963E546F /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B65171C5F004A638C618180 /* libRNGestureHandler.a */; };
+		49CA7483BADA481681BDBA0C /* libRNGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F92DF0BDFE084B4396E72DE2 /* libRNGL.a */; };
 		556DB061D116475DACE9371F /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B3FDAC3C5724DED98F73F2A /* FontAwesome5_Brands.ttf */; };
 		63F1CDB56E2C48DD877561E4 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48D9E8AD61D0421FBC5ADBD2 /* EvilIcons.ttf */; };
 		6ADFA0DA78A84231B4F14AD4 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63BF6B5E26FF47C2A301AABA /* FontAwesome5_Regular.ttf */; };
@@ -107,6 +109,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D7682761D8E76B80014119E;
 			remoteInfo = SplashScreen;
+		};
+		0A6D5F0B21B909F100E07324 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2EE124BCF644EC4BD52F030 /* RNGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNGL;
 		};
 		0A75A6CA21B6726C00C932F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -410,6 +419,8 @@
 		AEC698C5C6234783B257E595 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		C4BB3B43F5B844A89C5263A7 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
 		CEACD627DD5747DA80B187A1 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		F2EE124BCF644EC4BD52F030 /* RNGL.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
+		F92DF0BDFE084B4396E72DE2 /* libRNGL.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGL.a; sourceTree = "<group>"; };
 		F9FAAE37A50F494B9793E312 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +452,7 @@
 				39805681A3894F28963E546F /* libRNGestureHandler.a in Frameworks */,
 				E09B451057DA4E2E8808C2D6 /* libRNVectorIcons.a in Frameworks */,
 				7BB1EF52037E45F68FDA2DF4 /* libSplashScreen.a in Frameworks */,
+				49CA7483BADA481681BDBA0C /* libRNGL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,14 +550,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0A6D5F0821B909F100E07324 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A6D5F0C21B909F100E07324 /* libRNGL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0A75A69A21B6726900C932F9 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				7B65171C5F004A638C618180 /* libRNGestureHandler.a */,
 				76BF16625B074AB1927EEF10 /* libRNVectorIcons.a */,
-				99060D851A38476C9D92C7C6 /* libRCTSplashScreen.a */,
 				C4BB3B43F5B844A89C5263A7 /* libRNVectorIcons-tvOS.a */,
 				82D4A21BFA634138AD983ACA /* libSplashScreen.a */,
+				F92DF0BDFE084B4396E72DE2 /* libRNGL.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -690,6 +710,7 @@
 				52CC69D8E756437382E29286 /* RNGestureHandler.xcodeproj */,
 				76162C03BFE6412D99AAB3A1 /* RNVectorIcons.xcodeproj */,
 				AEC698C5C6234783B257E595 /* SplashScreen.xcodeproj */,
+				F2EE124BCF644EC4BD52F030 /* RNGL.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -903,6 +924,10 @@
 					ProjectRef = 52CC69D8E756437382E29286 /* RNGestureHandler.xcodeproj */;
 				},
 				{
+					ProductGroup = 0A6D5F0821B909F100E07324 /* Products */;
+					ProjectRef = F2EE124BCF644EC4BD52F030 /* RNGL.xcodeproj */;
+				},
+				{
 					ProductGroup = 0A75A6C221B6726C00C932F9 /* Products */;
 					ProjectRef = 76162C03BFE6412D99AAB3A1 /* RNVectorIcons.xcodeproj */;
 				},
@@ -962,6 +987,13 @@
 			fileType = archive.ar;
 			path = libSplashScreen.a;
 			remoteRef = 0A533AAD21B779F900D687C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A6D5F0C21B909F100E07324 /* libRNGL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGL.a;
+			remoteRef = 0A6D5F0B21B909F100E07324 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0A75A6CB21B6726C00C932F9 /* libRNGestureHandler.a */ = {
@@ -1367,12 +1399,14 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = ThirtyDaysTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1394,12 +1428,14 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = ThirtyDaysTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1422,6 +1458,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = ThirtyDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1446,6 +1483,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = ThirtyDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1477,11 +1515,13 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = "ThirtyDays-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1512,11 +1552,13 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = "ThirtyDays-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1546,11 +1588,13 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = "ThirtyDays-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1580,11 +1624,13 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/gl-react-native/ios",
 				);
 				INFOPLIST_FILE = "ThirtyDays-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
