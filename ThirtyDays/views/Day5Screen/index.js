@@ -72,14 +72,14 @@ class Day5Screen extends React.Component {
     if (gestureState.dx > 0 || gestureState.vx > 0) {
       this.initLeft = MAX_LEFT
       this.initOpacity = MAX_OPACITY
-      this.menuStyles.style.left = this.initLeft
       this.maskStyles.style.opacity = this.initOpacity
+      this.menuStyles.style.left = this.initLeft
     }
     if (gestureState.dx < 0 || gestureState.vx < 0) {
       this.initLeft = MIN_LEFT
       this.initOpacity = MIN_OPACITY
-      this.menuStyles.style.left = this.initLeft
       this.maskStyles.style.opacity = this.initOpacity
+      this.menuStyles.style.left = this.initLeft
     }
     LayoutAnimation.linear()
     this.updateStyle()
@@ -108,7 +108,8 @@ class Day5Screen extends React.Component {
         },
         onPanResponderMove: (evt, gestureState) => {
           this.menuStyles.style.left = this.initLeft + gestureState.dx
-          this.maskStyles.style.opacity = this.initOpacity + Math.pow(gestureState.dx / -(MIN_LEFT), 0.5);
+          this.maskStyles.style.opacity = ((-MIN_LEFT - Math.abs(this.menuStyles.style.left)) / -MIN_LEFT)
+          console.log(this.maskStyles.style.opacity)
           if (this.menuStyles.style.left > MAX_LEFT) {
             this.menuStyles.style.left = MAX_LEFT
             this.maskStyles.style.opacity = MAX_OPACITY

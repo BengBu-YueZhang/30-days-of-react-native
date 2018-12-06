@@ -25,3 +25,10 @@
 > 使用PanResponder进行单指操作
 
 ![image](https://i.loli.net/2018/12/03/5c04bfabf386d.gif)
+
+
+### Day5
+
+> 侧边菜单
+
+![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day8.gif)
