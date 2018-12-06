@@ -70,35 +70,16 @@ class Day5Screen extends React.Component {
 
   endMove = (evt, gestureState) => {
     if (gestureState.dx > 0 || gestureState.vx > 0) {
-      this.menuStyles = {
-        style: {
-          left: MAX_LEFT
-        }
-      }
-      this.maskStyles = {
-        style: {
-          left: MAX_OPACITY
-        }
-      }
       this.initLeft = MAX_LEFT
       this.initOpacity = MAX_OPACITY
+      this.menuStyles.style.left = this.initLeft
+      this.maskStyles.style.opacity = this.initOpacity
     }
     if (gestureState.dx < 0 || gestureState.vx < 0) {
-      this.menuStyles = {
-        style: {
-          left: MIN_LEFT
-        }
-      }
-      this.maskStyles = {
-        style: {
-          left: MIN_OPACITY
-        }
-      }
       this.initLeft = MIN_LEFT
       this.initOpacity = MIN_OPACITY
-      this.setState({
-        showDrap: false
-      })
+      this.menuStyles.style.left = this.initLeft
+      this.maskStyles.style.opacity = this.initOpacity
     }
     LayoutAnimation.linear()
     this.updateStyle()
