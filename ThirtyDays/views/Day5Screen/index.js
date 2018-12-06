@@ -83,7 +83,7 @@ class Day5Screen extends React.Component {
       this.initLeft = MAX_LEFT
       this.initOpacity = MAX_OPACITY
     }
-    if (gestureState.dx < 0 || gestureState.vx > 0) {
+    if (gestureState.dx < 0 || gestureState.vx < 0) {
       this.menuStyles = {
         style: {
           left: MIN_LEFT
