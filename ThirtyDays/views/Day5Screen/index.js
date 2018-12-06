@@ -31,7 +31,7 @@ const styles = StyleSheet.create(
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: '#000',
+      backgroundColor:"rgba(0,0,0,0.6)",
       opacity: 0,
       zIndex: 1
     }
@@ -41,7 +41,7 @@ const styles = StyleSheet.create(
 const MIN_LEFT = -width * 0.7 - 10
 const MAX_LEFT = 0
 const MIN_OPACITY = 0
-const MAX_OPACITY = 0.7
+const MAX_OPACITY = 1
 
 class Day5Screen extends React.Component {
 
@@ -127,7 +127,7 @@ class Day5Screen extends React.Component {
         },
         onPanResponderMove: (evt, gestureState) => {
           this.menuStyles.style.left = this.initLeft + gestureState.dx
-          this.maskStyles.style.opacity = Math.abs(gestureState.dx) / width
+          this.maskStyles.style.opacity = this.initOpacity + Math.pow(gestureState.dx / -(MIN_LEFT), 0.5);
           if (this.menuStyles.style.left > MAX_LEFT) {
             this.menuStyles.style.left = MAX_LEFT
             this.maskStyles.style.opacity = MAX_OPACITY
