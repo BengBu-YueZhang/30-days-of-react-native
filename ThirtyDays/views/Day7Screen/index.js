@@ -93,11 +93,29 @@ const Day7Stack = createStackNavigator(
           headerLeft: <HeaderRight navigation={navigation}/>
         }
       }
-    }
-  },
-  {
+    },
     Album: {
-      screen: Album
+      screen: Album,
+      navigationOptions: ({ navigation }) => {
+        return {
+          headerLeft: <Button
+            color={'#424242'}
+            onPress={() => {
+              navigation.navigate('Day7')
+            }}
+            title={'返回'}
+          />,
+          headerRight: <TouchableHighlight>
+            <Text
+              style={{
+                color: '#aed581',
+                paddingLeft: 3,
+                paddingRight: 3
+              }}
+            >确定(0/9)</Text>
+          </TouchableHighlight>
+        }
+      }
     }
   }
 )

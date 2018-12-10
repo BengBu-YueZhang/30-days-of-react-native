@@ -80,6 +80,7 @@ class AlbumSelect extends React.Component {
       assetType: 'Photos',
     })
     .then(r => {
+      // console.log(r)
       if (r && r.edges && r.edges.length) {
         this.setState({
           newPhoto: r.edges[0].node
@@ -89,7 +90,6 @@ class AlbumSelect extends React.Component {
   }
 
   openAlbum = () => {
-    console.log('openAlbum')
     this.props.navigation.navigate('Album')
   }
 

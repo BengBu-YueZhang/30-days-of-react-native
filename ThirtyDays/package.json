@@ -9,6 +9,7 @@
   "dependencies": {
     "gl-react-native": "^2.57.0",
     "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.1",
     "randomcolor": "^0.5.3",
