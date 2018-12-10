@@ -32,7 +32,7 @@ class RnDnD extends React.Component {
       selected: 0
     }
     this.animations = {
-      duration: 200,
+      duration: 100,
       create: {
         type: LayoutAnimation.Types.linear,
         property: LayoutAnimation.Properties.opacity

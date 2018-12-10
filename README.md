@@ -32,3 +32,7 @@
 > 侧边菜单
 
 ![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day8.gif)
+
+### Day6
+
+> 拖拽排序列表
