@@ -10,6 +10,7 @@ import {
   Button,
   KeyboardAvoidingView
 } from 'react-native'
+import { withNavigation } from 'react-navigation'
 
 const styles = StyleSheet.create(
   {
@@ -87,6 +88,11 @@ class AlbumSelect extends React.Component {
     })
   }
 
+  openAlbum = () => {
+    console.log('openAlbum')
+    this.props.navigation.navigate('Album')
+  }
+
   render () {
     return (
       <KeyboardAvoidingView
@@ -94,7 +100,9 @@ class AlbumSelect extends React.Component {
         style={{position: 'absolute', left: 0, right: 0, bottom: 0}}
         behavior="position">
         <View style={styles.wrapper}>
-          <TouchableHighlight style={styles.addButton}>
+          <TouchableHighlight
+            onPress={this.openAlbum}
+            style={styles.addButton}>
             <Text style={styles.add}>+</Text>
           </TouchableHighlight>
           {
@@ -116,4 +124,4 @@ class AlbumSelect extends React.Component {
   }
 }
 
-export default AlbumSelect
+export default withNavigation(AlbumSelect)

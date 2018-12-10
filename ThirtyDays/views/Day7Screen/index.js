@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 import AlbumSelect from './components/AlbumSelect'
+import Album from './Album'
 
 const styles = StyleSheet.create({
   container: {
@@ -92,6 +93,11 @@ const Day7Stack = createStackNavigator(
           headerLeft: <HeaderRight navigation={navigation}/>
         }
       }
+    }
+  },
+  {
+    Album: {
+      screen: Album
     }
   }
 )
