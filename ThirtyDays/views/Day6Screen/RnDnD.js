@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ScrollView, View, PanResponder, StyleSheet, LayoutAnimation } from 'react-native'
+import R from 'ramda'
 
 const styles = StyleSheet.create(
   {
@@ -40,6 +41,7 @@ class RnDnD extends React.Component {
         type: LayoutAnimation.Types.linear
       }
     }
+    this.list = []
     this.initPanResponder()
     this.breaker = true
   }
@@ -47,17 +49,18 @@ class RnDnD extends React.Component {
   _update = (evt, gestureState) => {
     this.finalIndex = this.index
     for (let key in this._layoutMap) {
-      if (this._layoutMap[key].y < this.top &&
-        this.top < (this._layoutMap[key].y + this._layoutMap[key].height)
-        && key !== this.index) {
+      if (
+        this._layoutMap[key].y < this.top &&
+        this.top < (this._layoutMap[key].y + this._layoutMap[key].height) &&
+        key !== this.index
+      ) {
         this.finalIndex = key
-        break
       }
     }
-    let data = [...this.state.data]
+    this.list = R.clone(this.props.data)
     let index = 0
     let finalIndex = 0
-    data.forEach((item, i) => {
+    this.list.forEach((item, i) => {
       if (item.id === this.index) {
         index = i
       }
@@ -65,26 +68,50 @@ class RnDnD extends React.Component {
         finalIndex = i
       }
     })
-    let movedBox = data[index]
-    data.splice(index, 1)
-    data.splice(finalIndex, 0, movedBox)
+    let movedBox = this.list[index]
+    this.list.splice(index, 1)
+    this.list.splice(finalIndex, 0, movedBox)
     let top = 0
-    for (let i = 0; i < data.length; i++) {
-      let item = this.refs['view' + data[i].id]
-      if (data[i].id !== this.index) {
+    for (let i = 0; i < this.list.length; i++) {
+      let item = this.refs['view' + this.list[i].id]
+      if (this.list[i].id !== this.index) {
         item.setNativeProps({
           style: {
-            left: 0,
             top: top
           }
         })
       }
-      top += this._layoutMap[data[i].id].height
+      top += this._layoutMap[this.list[i].id].height
     }
     LayoutAnimation.configureNext(this.animations)
   }
 
   _release = (evt, gestureState) => {
+    let top = 0
+    this.breaker = true
+    for (let i = 0; i < this.list.length; i++) {
+      let item = this.refs['view' + this.list[i].id]
+      item.setNativeProps({
+        style: {
+          top: top
+        }
+      })
+      top += this._layoutMap[this.list[i].id].height
+    }
+    let box = this.refs['view' + this.index]
+    box.setNativeProps({
+      style: { 
+        opacity:1,
+        shadowColor: "#000",
+        shadowOpacity: 0,
+        shadowRadius: 0,
+        shadowOffset: {
+          height: 0,
+          width: 0,
+        }
+      }
+    })
+    LayoutAnimation.configureNext(this.animations)
   }
 
   initPanResponder = () => {
@@ -138,8 +165,8 @@ class RnDnD extends React.Component {
           this._update(evt, gestureState)
         },
         onPanResponderTerminationRequest: (evt, gestureState) => true,
-        onPanResponderRelease: (evt, gestureState) => {},
-        onPanResponderTerminate: (evt, gestureState) => {},
+        onPanResponderRelease: (evt, gestureState) => { this._release(evt, gestureState) },
+        onPanResponderTerminate: (evt, gestureState) => { this._release(evt, gestureState) },
         onShouldBlockNativeResponder: (event, gestureState) => true,
       }
     )
@@ -161,8 +188,7 @@ class RnDnD extends React.Component {
   }
 
   render () {
-    const { template } = this.props
-    const { data } = this.state
+    const { template, data } = this.props
     const Template = template
     return (
       <View>
