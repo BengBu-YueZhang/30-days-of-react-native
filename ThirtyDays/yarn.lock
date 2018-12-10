@@ -4046,6 +4046,10 @@ query-string@^6.2.0:
     decode-uri-component "^0.2.0"
     strict-uri-encode "^2.0.0"
 
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "http://registry.npm.taobao.org/ramda/download/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+
 randomatic@^3.0.0:
   version "3.1.1"
   resolved "http://registry.npm.taobao.org/randomatic/download/randomatic-3.1.1.tgz#b776efc59375984e36c537b2f51a1f0aff0da1ed"
