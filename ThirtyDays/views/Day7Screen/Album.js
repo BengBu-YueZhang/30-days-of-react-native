@@ -7,16 +7,31 @@ import { View,
   Platform
 } from 'react-native'
 import _ from 'lodash'
+import { width } from '../../util/dimensions'
 
 const styles = StyleSheet.create(
   {
+    wrapper: {
+      flexDirection: 'row'
+    },
+    Photo: {
+      width: width / 4,
+      height: width / 4,
+      borderColor: '#f5f5f5',
+      borderWidth: 1
+    }
   }
 )
 
 class Photo extends React.Component {
   render () {
+    const { photo } = this.props
     return (
-      <View></View>
+      <View style={styles.Photo}>
+        <Image
+          source={{uri: photo.node.image.uri}}
+          style={styles.Photo}/>
+      </View>
     )
   }
 }
@@ -90,6 +105,7 @@ class Album extends React.Component {
   }
 
   endReached = () => {
+    console.log(this.state.assets)
     if (!this.state.noMorePhotos) {
       this.tryPhotoLoad()
     }
@@ -101,7 +117,15 @@ class Album extends React.Component {
 
   render () {
     return (
-      <View></View>
+      <View>
+        <FlatList
+          numColumns={4}
+          style={styles.wrapper}
+          data={this.state.assets}
+          renderItem={({item}) => <Photo photo={item}/>}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
     )
   }
 }
