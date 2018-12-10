@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, PanResponder, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 import RnDnD from './RnDnD'
 import uuid from 'uuid/v1'
@@ -90,7 +90,7 @@ class Day6Screen extends React.Component {
 
 const Day6Stack = createStackNavigator(
   {
-    Day5: Day6Screen
+    Day6: Day6Screen
   },
   {
     defaultNavigationOptions: {

@@ -27,6 +27,10 @@ const DAYS = List([
   Map({
     title: 'Day6',
     path: 'Day6'
+  }),
+  Map({
+    title: 'Day7',
+    path: 'Day7'
   })
 ])
 
