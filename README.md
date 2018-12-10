@@ -42,3 +42,5 @@
 > 模仿豆瓣的照片选择器
 
 ![image](https://i.loli.net/2018/12/10/5c0e4883d9aa5.png)
+
+![image](https://i.loli.net/2018/12/10/5c0e70e30927d.png)
