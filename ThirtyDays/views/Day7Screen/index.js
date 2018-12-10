@@ -8,16 +8,16 @@ import {
   TextInput,
   TouchableHighlight,
   View,
-  KeyboardAvoidingView,
   Button
 } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from 'react-navigation'
+import AlbumSelect from './components/AlbumSelect'
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%'
+    height: '100%',
+    paddingTop: 15
   },
   textArea: {
     flex: 1,
@@ -31,23 +31,25 @@ class Day7Screen extends React.Component {
   constructor (props) {
     super(props)
     this.textArea = null
+    this.AlbumSelect = null
   }
 
   render () {
     return (
-      <KeyboardAvoidingView>
-        <View style={styles.container}>
-          <TextInput
-            autoFocus={true}
-            style={styles.textArea}
-            multiline={true}
-            placeholder={'分享生活点滴'}
-            selectionColor="#2aa2ef"
-            placeholderTextColor="#ced8de"
-            ref="textarea"
-          />
-        </View>
-      </KeyboardAvoidingView>
+      <View style={styles.container}>
+        <TextInput
+          autoFocus={false}
+          style={styles.textArea}
+          multiline={true}
+          placeholder={'分享生活点滴'}
+          selectionColor="#2aa2ef"
+          placeholderTextColor="#ced8de"
+          ref="textarea"
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+        />
+        <AlbumSelect ref={AlbumSelect => this.AlbumSelect = AlbumSelect}/>
+      </View>
     )
   }
 }
