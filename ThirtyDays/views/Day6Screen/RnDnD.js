@@ -37,27 +37,51 @@ class RnDnD extends React.Component {
         property: LayoutAnimation.Properties.opacity
       },
       update: {
-        type: LayoutAnimation.Types.linear,
-        springDamping: 0.7,
+        type: LayoutAnimation.Types.linear
       }
     }
     this.initPanResponder()
+    this.breaker = true
   }
 
-  _endMove = (evt, gestureState) => {
+  _update = (evt, gestureState) => {
+    this.finalIndex = this.index
     for (let key in this._layoutMap) {
-      if (this._layoutMap[key].y <= this.top &&
-        this.top <= (this._layoutMap[key].y + this._layoutMap[key].height) &&
-        key !== this.index) {
+      if (this._layoutMap[key].y < this.top &&
+        this.top < (this._layoutMap[key].y + this._layoutMap[key].height)
+        && key !== this.index) {
         this.finalIndex = key
         break
       }
     }
-    for (let key in this._layoutMap) {
-      if (key > this.finalIndex) {
-        let item = this.refs['view' + key]
+    let data = [...this.state.data]
+    let index = 0
+    let finalIndex = 0
+    data.forEach((item, i) => {
+      if (item.id === this.index) {
+        index = i
       }
+      if (item.id === this.finalIndex) {
+        finalIndex = i
+      }
+    })
+    let movedBox = data[index]
+    data.splice(index, 1)
+    data.splice(finalIndex, 0, movedBox)
+    let top = 0
+    for (let i = 0; i < data.length; i++) {
+      let item = this.refs['view' + data[i].id]
+      if (data[i].id !== this.index) {
+        item.setNativeProps({
+          style: {
+            left: 0,
+            top: top
+          }
+        })
+      }
+      top += this._layoutMap[data[i].id].height
     }
+    LayoutAnimation.configureNext(this.animations)
   }
 
   _release = (evt, gestureState) => {
@@ -73,6 +97,7 @@ class RnDnD extends React.Component {
         },
         onMoveShouldSetPanResponder: (evt, gestureState) => true,
         onPanResponderGrant: (evt, gestureState) => {
+          this.breaker = false
           const { pageY } = evt.nativeEvent
           for (let key in this._layoutMap) {
             if (this._layoutMap[key].y <= pageY &&
@@ -99,7 +124,7 @@ class RnDnD extends React.Component {
                 width: 2
               },
               zIndex: 2
-            },
+            }
           })
         },
         onPanResponderMove: (evt, gestureState) => {
@@ -110,7 +135,7 @@ class RnDnD extends React.Component {
               top: this.top
             }
           })
-          this._endMove(evt, gestureState)
+          this._update(evt, gestureState)
         },
         onPanResponderTerminationRequest: (evt, gestureState) => true,
         onPanResponderRelease: (evt, gestureState) => {},
@@ -148,12 +173,14 @@ class RnDnD extends React.Component {
                 style={styles.root}
                 {...this._panResponder.panHandlers}
                 key={item.id}
-                ref={`view${i}`}
+                ref={`view${item.id}`}
                 onLayout={(event) => {
-                  const { x, y, width, height } = event.nativeEvent.layout
-                  this._layoutMap = {
-                    ...this._layoutMap,
-                    [i]: { x, y, width, height }
+                  if (this.breaker) {
+                    const { x, y, width, height } = event.nativeEvent.layout
+                    this._layoutMap = {
+                      ...this._layoutMap,
+                      [item.id]: { x, y, width, height }
+                    }
                   }
                 }}
                 >
