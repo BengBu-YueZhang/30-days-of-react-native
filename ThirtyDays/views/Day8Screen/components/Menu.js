@@ -8,6 +8,7 @@ import {
   Image
 } from 'react-native'
 import PropTypes from 'prop-types'
+import {width} from '../../../util/dimensions'
 
 
 const styles = StyleSheet.create(
@@ -49,43 +50,110 @@ class Menu extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      animation: new Animated.Value(1)
+      animation: new Animated.Value(0)
     }
+  }
+
+  componentDidMount () {
+    Animated.timing(
+      this.state.animation,
+      {
+        delay: 1000,
+        toValue: 1,
+        duration: 500
+      }
+    )
+  }
+
+  handleShow = () => {
+  }
+
+  handleDismiss = () => {
   }
 
   render () {
     const { modalVisible } = this.props
     return (
       <Modal
+        onShow={this.handleShow}
+        onDismiss={this.handleDismiss}
         transparent={true}
         visible={modalVisible}
       >
         <View style={styles.root}>
           <View style={styles.content}>
-            <View style={styles.button}>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-audio.png')}/>
               <Text style={styles.buttonText}>Audio</Text>
-            </View>
-            <View style={styles.button}>
+            </Animated.View>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-chat.png')}/>
               <Text style={styles.buttonText}>Chat</Text>
-            </View>
-            <View style={styles.button}>
+            </Animated.View>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-link.png')}/>
               <Text style={styles.buttonText}>Link</Text>
-            </View>
-            <View style={styles.button}>
+            </Animated.View>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-photo.png')}/>
               <Text style={styles.buttonText}>Photo</Text>
-            </View>
-            <View style={styles.button}>
+            </Animated.View>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-quote.png')}/>
               <Text style={styles.buttonText}>Quote</Text>
-            </View>
-            <View style={styles.button}>
+            </Animated.View>
+            <Animated.View style={{
+              ...styles.button,
+              transform: [{
+                translateX: this.state.animation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, width]
+                })
+              }]
+            }}>
               <Image style={styles.icon} source={require('../../../assets/tumblr-text.png')}/>
               <Text style={styles.buttonText}>Text</Text>
-            </View>
+            </Animated.View>
           </View>
         </View>
       </Modal>
