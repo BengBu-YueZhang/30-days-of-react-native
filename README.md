@@ -48,3 +48,15 @@
 ### Day8
 
 ![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day10.gif)
+
+### Day9 手势解锁
+
+### Day10 Twitter用户页面
+
+### Day11 touchID
+
+### Day12 Youtube可滚动标签
+
+### Day13 Google Now
+
+### Day14 RN图片上传

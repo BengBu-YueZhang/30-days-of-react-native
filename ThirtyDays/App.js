@@ -8,6 +8,7 @@ import Day5Stack from './views/Day5Screen'
 import Day6Stack from './views/Day6Screen'
 import Day7Stack from './views/Day7Screen'
 import Day8Stack from './views/Day8Screen'
+import Day9Stack from './views/Day9Screen'
 import {
   createStackNavigator,
   createAppContainer,
@@ -40,7 +41,8 @@ const RootStack = createSwitchNavigator(
     Day5: Day5Stack,
     Day6: Day6Stack,
     Day7: Day7Stack,
-    Day8: Day8Stack
+    Day8: Day8Stack,
+    Day9: Day9Stack
   },
   {
     initialRouteName: 'Home',

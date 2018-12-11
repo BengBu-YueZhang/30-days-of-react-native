@@ -4005,7 +4005,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -4111,6 +4111,12 @@ react-native-gesture-handler@^1.0.0, react-native-gesture-handler@^1.0.10:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
+
+react-native-gesture-password@^0.3.4:
+  version "0.3.4"
+  resolved "http://registry.npm.taobao.org/react-native-gesture-password/download/react-native-gesture-password-0.3.4.tgz#f1fe3a0e7ba35941c1f5820312fa0a64097269c5"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-safe-area-view@^0.11.0:
   version "0.11.0"
