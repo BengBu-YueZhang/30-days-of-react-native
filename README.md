@@ -2,6 +2,15 @@
 
 30天学习ReactNative
 
+```shell
+git clone https://github.com/BengBu-YueZhang/30-days-of-react-native.git
+
+yarn install
+
+# 目前没有适配安卓
+react-native run-ios
+```
+
 ## Day1
 
 > 使用react-navigation制作的底部导航
