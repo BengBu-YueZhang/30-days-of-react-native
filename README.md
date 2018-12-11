@@ -44,3 +44,7 @@
 ![image](https://i.loli.net/2018/12/10/5c0e4883d9aa5.png)
 
 ![image](https://i.loli.net/2018/12/10/5c0e70e30927d.png)
+
+### Day8
+
+![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day10.gif)
