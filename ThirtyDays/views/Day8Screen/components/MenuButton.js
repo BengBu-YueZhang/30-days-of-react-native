@@ -2,8 +2,8 @@ import React from 'react'
 import Menu from './Menu'
 import {
   View,
-  Text,
-  StyleSheet
+  StyleSheet,
+  Modal
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -31,6 +31,7 @@ class MenuButton extends React.Component {
           color="#171F33"
           size={20}
         />
+        <Menu/>
       </View>
     )
   }
