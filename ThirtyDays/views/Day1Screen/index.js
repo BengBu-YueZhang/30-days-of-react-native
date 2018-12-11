@@ -210,7 +210,7 @@ const Day1Stack = createBottomTabNavigator(
       activeTintColor: '#F8F8F8',
       inactiveTintColor: '#586589',
       style: {
-          backgroundColor: '#171F33'
+        backgroundColor: '#171F33'
       }
     }
   }
