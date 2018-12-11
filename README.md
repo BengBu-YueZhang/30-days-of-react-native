@@ -51,6 +51,8 @@
 
 ### Day9 手势解锁
 
+![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day16.gif)
+
 ### Day10 Twitter用户页面
 
 ### Day11 touchID
