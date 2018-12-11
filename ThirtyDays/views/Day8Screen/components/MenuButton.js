@@ -3,7 +3,7 @@ import Menu from './Menu'
 import {
   View,
   StyleSheet,
-  Modal
+  TouchableHighlight
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -23,16 +23,38 @@ const styles = StyleSheet.create(
 )
 
 class MenuButton extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      modalVisible: false
+    }
+  }
+
+  handlePress = () => {
+    this.setState((prevState) => {
+      return {
+        modalVisible: !prevState.modalVisible
+      }
+    })
+  }
+
   render () {
     return (
-      <View style={styles.root}>
-        <Icon
-          name="bell"
-          color="#171F33"
-          size={20}
-        />
-        <Menu/>
-      </View>
+      <TouchableHighlight
+        onPress={this.handlePress}
+      >
+        <View style={styles.root}>
+          
+            <Icon
+              name="bell"
+              color="#F8F8F8"
+              size={20}
+            />
+          
+          <Menu modalVisible={this.state.modalVisible}/>
+        </View>
+      </TouchableHighlight>
     )
   }
 }

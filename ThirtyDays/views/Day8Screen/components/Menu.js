@@ -5,7 +5,8 @@ import {
   Animated,
   Modal,
   Text,
-  Image
+  Image,
+  Easing
 } from 'react-native'
 import PropTypes from 'prop-types'
 import {width} from '../../../util/dimensions'
@@ -50,25 +51,27 @@ class Menu extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      animation: new Animated.Value(0)
+      animation: new Animated.Value(1)
     }
   }
 
-  componentDidMount () {
+  startMove () {
     Animated.timing(
       this.state.animation,
       {
-        delay: 1000,
-        toValue: 1,
+        easing: Easing.elastic(),
+        toValue: this.state.animation._value === 1 ? 0 : 1,
         duration: 500
       }
-    )
+    ).start()
   }
 
   handleShow = () => {
+    this.startMove()
   }
 
   handleDismiss = () => {
+    this.startMove()
   }
 
   render () {
@@ -166,7 +169,7 @@ Menu.propTypes = {
 }
 
 Menu.defaultProps = {
-  modalVisible: true
+  modalVisible: false
 }
 
 export default Menu
