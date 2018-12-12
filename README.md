@@ -62,12 +62,12 @@ react-native run-ios
 
 ![image](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day16.gif)
 
-### Day10 Twitter用户页面
+### Day10 Youtube可滚动标签
 
-### Day11 touchID
+### Day11 Twitter用户页面
 
-### Day12 Youtube可滚动标签
+### Day12 touchID
 
 ### Day13 Google Now
 
-### Day14 RN图片上传
+### Day14 RN多选图片上传
