@@ -44,6 +44,17 @@ sudo npm install -g rnpm
 rnpm link
 ```
 
+##### 使用
+
+![image](https://i.loli.net/2019/02/07/5c5bcd53cbb3d.png)
+
+```js
+
+// 引入自己想要使用的图表库
+import Icon from 'react-native-vector-icons/FontAwesome'
+
+import Icon from 'react-native-vector-icons/MaterialIcons'
+```
 
 ## 第一天
 
