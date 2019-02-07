@@ -15,4 +15,21 @@ react-native run-android
 
 ## 第零天
 
+九宫格页面
+
+### 遇到的问题
+
+#### 安卓模拟器如何开启热更新？
+
+[How to enable live reload in react native on android?](https://stackoverflow.com/questions/36933287/how-to-enable-live-reload-in-react-native-on-android)
+
+#### 刘海屏的适配
+
+react-navigation提供了SafeAreaView组件可以为留海屏提供适配的功能
+
+#### 字体图片的使用
+
+### 预览
+
 ## 第一天
+
