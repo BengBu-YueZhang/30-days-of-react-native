@@ -1,21 +1,32 @@
 import React from 'react'
 import { SafeAreaView } from 'react-navigation'
-import { View, Text } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import YueYueButton from '../../components/YueYueButton'
 
 const days = [
-  { title: 'Day1', icon: '', path: 'Day1' }
+  { title: 'Day1', icon: 'alarm', path: 'Day1' }
 ]
 
 class Home extends React.Component {
   render () {
-    // const { navigate } = this.props.navigation
+    const { navigate } = this.props.navigation
     return (
       <SafeAreaView>
-        <View>
-          <Text>123</Text>
-          <Icon name="person" size={30} color="#4F8EF7" />
-        </View>
+        <ScrollView>
+          {
+            days.length > 0 && days.map((day, index) => {
+              return (
+                <View key={index}>
+                  <YueYueButton
+                    text={day.title}
+                    flat={true}
+                  />
+                </View>
+              )
+            })
+          }
+        </ScrollView>
       </SafeAreaView>
     )
   }
