@@ -15,7 +15,7 @@ react-native run-android
 
 ## 第零天
 
-九宫格页面
+### 预览
 
 ### 遇到的问题
 
@@ -27,11 +27,23 @@ react-native run-android
 
 [react-navigation提供了SafeAreaView组件可以为留海屏提供适配的功能](https://reactnavigation.org/docs/zh-Hans/handling-iphonex.html)
 
-#### 字体图片的使用
+#### Error: bundling failed
 
+[解决方案](https://stackoverflow.com/questions/51068105/react-native-bundling-failed)
 
+#### react-native-vector-icons的使用
 
-### 预览
+##### 下载
+
+```js
+
+npm install react-native-vector-icons --save
+
+sudo npm install -g rnpm
+
+rnpm link
+```
+
 
 ## 第一天
 

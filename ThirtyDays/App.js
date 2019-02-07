@@ -1,5 +1,5 @@
 import React from 'react'
-// import HomeScreen from './views/HomeScreen'
+import Home from './views/Home'
 // import Day1Stack from './views/Day1Screen'
 // import Day2Stack from './views/Day2Screen'
 // import Day3Stack from './views/Day3Screen'
@@ -18,10 +18,11 @@ import { Provider } from 'react-redux'
 import store from './store'
 import SplashScreen from 'react-native-splash-screen'
 
+
 const HomeStack = createStackNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: Home
     }
   },
   {
@@ -33,7 +34,7 @@ const HomeStack = createStackNavigator(
 
 const RootStack = createSwitchNavigator(
   {
-    // Home: HomeStack,
+    Home: HomeStack,
     // Day1: Day1Stack,
     // Day2: Day2Stack,
     // Day3: Day3Stack,
@@ -45,7 +46,7 @@ const RootStack = createSwitchNavigator(
     // Day9: Day9Stack
   },
   {
-    // initialRouteName: 'Home',
+    initialRouteName: 'Home',
     defaultNavigationOptions: {
       header: null
     }
