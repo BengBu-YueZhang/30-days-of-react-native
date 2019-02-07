@@ -11,16 +11,14 @@ const colors = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 10
+    width: '100%'
   },
   button: {
-    alignItems: 'center',
     padding: 10
   },
   text: {
-    fontWeight: '500'
+    fontWeight: '500',
+    textAlign: 'center'
   }
 })
 
