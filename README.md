@@ -17,6 +17,8 @@ react-native run-android
 
 ### 预览
 
+![image](https://i.loli.net/2019/02/07/5c5bed639c191.png)
+
 ### 遇到的问题
 
 #### 安卓模拟器如何开启热更新？
