@@ -25,9 +25,11 @@ react-native run-android
 
 #### 刘海屏的适配
 
-react-navigation提供了SafeAreaView组件可以为留海屏提供适配的功能
+[react-navigation提供了SafeAreaView组件可以为留海屏提供适配的功能](https://reactnavigation.org/docs/zh-Hans/handling-iphonex.html)
 
 #### 字体图片的使用
+
+
 
 ### 预览
 

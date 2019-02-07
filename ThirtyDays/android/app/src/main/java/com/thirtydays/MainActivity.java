@@ -1,6 +1,7 @@
 package com.thirtydays;
 
 import com.facebook.react.ReactActivity;
+import com.mehcode.reactnative.splashscreen.SplashScreenPackage;
 import com.projectseptember.RNGL.RNGLPackage;
 
 public class MainActivity extends ReactActivity {
